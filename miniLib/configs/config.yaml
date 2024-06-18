@@ -2,9 +2,11 @@ server:
   http:
     addr: 0.0.0.0:8000
     timeout: 1s
+    auth_key: testKey
   grpc:
     addr: 0.0.0.0:9000
     timeout: 1s
+    auth_key: testKey
 data:
   database:
     driver: mysql

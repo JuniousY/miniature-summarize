@@ -15,11 +15,13 @@ message Server {
     string network = 1;
     string addr = 2;
     google.protobuf.Duration timeout = 3;
+    string auth_key = 4;
   }
   message GRPC {
     string network = 1;
     string addr = 2;
     google.protobuf.Duration timeout = 3;
+    string auth_key = 4;
   }
   HTTP http = 1;
   GRPC grpc = 2;

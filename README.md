@@ -5,7 +5,7 @@ Tools for quick summarize text, audio and video
 - **miniLib** - Golang微服务
 
 ## 功能点
-- [ ] 鉴权
+- [x] 鉴权
 - [ ] 服务注册与发现
     - [ ] 服务注册
     - [ ] 模拟其他微服务调用

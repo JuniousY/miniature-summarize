@@ -1,6 +1,8 @@
 package server
 
 import (
+	"github.com/go-kratos/kratos/v2/middleware/auth/jwt"
+	jwtv4 "github.com/golang-jwt/jwt/v4"
 	v1 "miniLib/api/helloworld/v1"
 	"miniLib/internal/conf"
 	"miniLib/internal/service"
@@ -15,6 +17,9 @@ func NewGRPCServer(c *conf.Server, greeter *service.GreeterService, logger log.L
 	var opts = []grpc.ServerOption{
 		grpc.Middleware(
 			recovery.Recovery(),
+			jwt.Server(func(token *jwtv4.Token) (interface{}, error) {
+				return []byte(c.Grpc.GetAuthKey()), nil
+			}),
 		),
 	}
 	if c.Grpc.Network != "" {
